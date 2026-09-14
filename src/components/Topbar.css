@@ -1,0 +1,214 @@
+.topbar {
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
+  border-bottom: 1px solid rgba(218, 241, 222, 0.08);
+
+  background: rgba(5, 31, 32, 0.72);
+
+  backdrop-filter: blur(18px);
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #6f9f8a;
+
+  font-size: 12px;
+}
+
+.breadcrumb b {
+  color: #406e5d;
+}
+
+.breadcrumb strong {
+  color: #daf1de;
+}
+
+/* RIGHT */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* SEARCH */
+
+.topbar-search {
+  width: 250px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0 10px;
+
+  background: #0b2b26;
+
+  border: 1px solid rgba(218, 241, 222, 0.09);
+  border-radius: 9px;
+
+  color: #6f9f8a;
+}
+
+.topbar-search input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #daf1de;
+
+  font-size: 11px;
+}
+
+.topbar-search input::placeholder {
+  color: #5f8f7c;
+}
+
+.search-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  padding: 3px 5px;
+
+  border: 1px solid rgba(218, 241, 222, 0.08);
+  border-radius: 5px;
+
+  color: #5f8f7c;
+
+  font-size: 9px;
+}
+
+/* ICON BUTTON */
+
+.topbar-icon {
+  position: relative;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(218, 241, 222, 0.08);
+  border-radius: 9px;
+
+  background: #0b2b26;
+
+  color: #8eb69b;
+
+  transition: 0.2s ease;
+}
+
+.topbar-icon:hover {
+  color: #8be69b;
+  border-color: rgba(139, 230, 155, 0.2);
+}
+
+.notification span {
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  top: 8px;
+  right: 8px;
+
+  border-radius: 50%;
+
+  background: #8be69b;
+}
+
+/* PROFILE */
+
+.topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding-left: 10px;
+}
+
+.topbar-avatar {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #235347;
+
+  color: #8be69b;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.topbar-user strong {
+  display: block;
+
+  color: #daf1de;
+
+  font-size: 11px;
+}
+
+.topbar-user span {
+  display: block;
+
+  color: #6f9f8a;
+
+  font-size: 9px;
+
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    padding: 0 18px;
+  }
+
+  .topbar-search {
+    width: 190px;
+  }
+
+  .topbar-user {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .breadcrumb {
+    display: none;
+  }
+
+  .topbar-search {
+    width: 150px;
+  }
+
+  .topbar-profile {
+    display: none;
+  }
+}

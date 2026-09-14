@@ -1,0 +1,862 @@
+/* =========================================================
+   HIREIQ CANDIDATES
+   Premium AI talent intelligence
+   ========================================================= */
+
+.candidates-page {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 26px 0 34px;
+  box-sizing: border-box;
+}
+
+/* ================= HEADER ================= */
+
+.candidates-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.candidates-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+  color: #7dd3b0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.candidates-eyebrow span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #71d7b0;
+  box-shadow: 0 0 8px rgba(113, 215, 176, 0.7);
+}
+
+.candidates-header h1 {
+  margin: 0;
+  color: #eefcf7;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.candidates-header p {
+  margin: 6px 0 0;
+  color: #759a91;
+  font-size: 12px;
+}
+
+.add-candidate-btn {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+
+  border: 1px solid rgba(119, 209, 174, 0.28);
+  border-radius: 8px;
+
+  background: #7bc8a8;
+  color: #092b25;
+
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ================= STATS ================= */
+
+.candidate-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.candidate-stat-card {
+  min-height: 92px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px;
+  box-sizing: border-box;
+
+  border: 1px solid rgba(103, 170, 151, 0.18);
+  border-radius: 11px;
+
+  background:
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(74, 154, 128, 0.10),
+      transparent 40%
+    ),
+    rgba(15, 50, 44, 0.88);
+}
+
+.candidate-stat-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: rgba(99, 168, 147, 0.11);
+  color: #9bdac3;
+}
+
+.candidate-stat-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.candidate-stat-card span {
+  color: #789d94;
+  font-size: 9px;
+}
+
+.candidate-stat-card strong {
+  color: #effff9;
+  font-size: 19px;
+  line-height: 1.1;
+}
+
+.candidate-stat-card small {
+  color: #69c5a2;
+  font-size: 7px;
+}
+
+/* ================= AI BANNER ================= */
+
+.candidate-ai-banner {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 14px;
+  padding: 13px 15px;
+
+  border: 1px solid rgba(103, 184, 155, 0.20);
+  border-radius: 11px;
+
+  background:
+    radial-gradient(
+      circle at 0% 50%,
+      rgba(74, 183, 144, 0.10),
+      transparent 35%
+    ),
+    rgba(18, 59, 51, 0.82);
+}
+
+.candidate-ai-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: rgba(83, 196, 154, 0.13);
+  color: #7bddb8;
+}
+
+.candidate-ai-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.candidate-ai-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.candidate-ai-title strong {
+  color: #dff8ef;
+  font-size: 11px;
+}
+
+.candidate-ai-title span {
+  padding: 3px 6px;
+  border-radius: 5px;
+  background: rgba(77, 181, 143, 0.12);
+  color: #76cfac;
+  font-size: 7px;
+}
+
+.candidate-ai-content p {
+  margin: 4px 0 0;
+  color: #6e958b;
+  font-size: 8px;
+}
+
+.candidate-ai-content p strong {
+  color: #9ddbc6;
+}
+
+.candidate-ai-banner > button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  flex-shrink: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: #83d3b5;
+  font-size: 8px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+/* ================= MAIN SECTION ================= */
+
+.candidates-section {
+  overflow: hidden;
+
+  border: 1px solid rgba(103, 170, 151, 0.18);
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(74, 154, 128, 0.07),
+      transparent 35%
+    ),
+    rgba(15, 50, 44, 0.88);
+}
+
+.candidates-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 16px;
+
+  border-bottom: 1px solid rgba(104, 157, 144, 0.11);
+}
+
+.candidates-section-header h2 {
+  margin: 0;
+  color: #e6faf4;
+  font-size: 14px;
+}
+
+.candidates-section-header p {
+  margin: 4px 0 0;
+  color: #658b82;
+  font-size: 9px;
+}
+
+.candidate-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.candidate-search {
+  width: 175px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0 9px;
+  box-sizing: border-box;
+
+  border: 1px solid rgba(104, 168, 150, 0.16);
+  border-radius: 7px;
+
+  background: rgba(6, 35, 30, 0.45);
+  color: #699187;
+}
+
+.candidate-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #cceee2;
+  font-size: 8px;
+}
+
+.candidate-search input::placeholder {
+  color: #5d8178;
+}
+
+.candidate-filter-btn,
+.candidate-sort-btn {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 0 9px;
+
+  border: 1px solid rgba(104, 168, 150, 0.16);
+  border-radius: 7px;
+
+  background: rgba(6, 35, 30, 0.45);
+  color: #82aa9f;
+
+  font-size: 8px;
+  cursor: pointer;
+}
+
+/* ================= TABLE HEADER ================= */
+
+.candidate-table-header {
+  min-height: 34px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(210px, 2.2fr)
+    minmax(160px, 1.7fr)
+    75px
+    80px
+    90px
+    70px
+    28px;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 15px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(100, 153, 141, 0.08);
+}
+
+.candidate-table-header span {
+  color: #547970;
+  font-size: 7px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+/* ================= CANDIDATE ROW ================= */
+
+.candidate-row {
+  min-height: 70px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(210px, 2.2fr)
+    minmax(160px, 1.7fr)
+    75px
+    80px
+    90px
+    70px
+    28px;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 15px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(100, 153, 141, 0.08);
+
+  transition: background 0.18s ease;
+}
+
+.candidate-row:hover {
+  background: rgba(73, 145, 121, 0.055);
+}
+
+.candidate-row:last-child {
+  border-bottom: 0;
+}
+
+/* ================= CANDIDATE MAIN ================= */
+
+.candidate-main {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.candidate-avatar {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(92, 163, 139, 0.15);
+  color: #9ad9c2;
+
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.candidate-info {
+  min-width: 0;
+}
+
+.candidate-info strong {
+  display: block;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #d9f4eb;
+  font-size: 10px;
+}
+
+.candidate-info div {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  margin-top: 3px;
+
+  color: #63877f;
+  font-size: 7px;
+}
+
+/* ================= ROLE ================= */
+
+.candidate-role {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.candidate-role strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #ccece2;
+  font-size: 9px;
+}
+
+.candidate-role span {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  color: #5e8179;
+  font-size: 7px;
+}
+
+/* ================= EXPERIENCE ================= */
+
+.candidate-experience {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #86afa3;
+  font-size: 8px;
+}
+
+/* ================= AI MATCH ================= */
+
+.candidate-match {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.candidate-match-top {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.candidate-match-top svg {
+  color: #72d2ae;
+}
+
+.candidate-match-top strong {
+  color: #9be0c6;
+  font-size: 10px;
+}
+
+.candidate-match-track {
+  width: 62px;
+  height: 3px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: rgba(81, 127, 115, 0.15);
+}
+
+.candidate-match-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #68b99d,
+    #8bd8ba
+  );
+}
+
+/* ================= STATUS ================= */
+
+.candidate-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 4px 6px;
+
+  border-radius: 5px;
+
+  background: rgba(50, 157, 120, 0.11);
+
+  color: #73cdaa;
+
+  font-size: 7px;
+  font-weight: 600;
+}
+
+.candidate-status > span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #71d4ad;
+}
+
+.candidate-status.interview {
+  background: rgba(94, 150, 190, 0.11);
+  color: #83b9d5;
+}
+
+.candidate-status.interview > span {
+  background: #83b9d5;
+}
+
+.candidate-status.screening {
+  background: rgba(193, 159, 72, 0.10);
+  color: #cbb66c;
+}
+
+.candidate-status.screening > span {
+  background: #cbb66c;
+}
+
+.candidate-status.review {
+  background: rgba(133, 112, 171, 0.11);
+  color: #a998cb;
+}
+
+.candidate-status.review > span {
+  background: #a998cb;
+}
+
+/* ================= APPLIED ================= */
+
+.candidate-applied {
+  color: #60837b;
+  font-size: 7px;
+}
+
+/* ================= MORE ================= */
+
+.candidate-more {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(104, 168, 150, 0.13);
+  border-radius: 6px;
+
+  background: rgba(74, 133, 117, 0.06);
+  color: #709e91;
+
+  cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+
+.candidate-footer {
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 15px;
+
+  border-top: 1px solid rgba(100, 153, 141, 0.08);
+}
+
+.candidate-footer span {
+  color: #587b73;
+  font-size: 7px;
+}
+
+.candidate-footer strong {
+  color: #91c7b5;
+}
+
+.candidate-footer button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  border: 0;
+  background: transparent;
+
+  color: #76cdb0;
+  font-size: 8px;
+  cursor: pointer;
+}
+
+/* ================= BOTTOM INSIGHTS ================= */
+
+.candidate-insights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+.candidate-insight-card {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 10px 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(103, 170, 151, 0.15);
+  border-radius: 10px;
+
+  background: rgba(15, 50, 44, 0.80);
+}
+
+.insight-card-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: rgba(74, 145, 122, 0.10);
+  color: #7bc9ab;
+}
+
+.candidate-insight-card div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.candidate-insight-card strong {
+  color: #cceee3;
+  font-size: 9px;
+}
+
+.candidate-insight-card span {
+  color: #60837a;
+  font-size: 7px;
+}
+
+.candidate-insight-card > svg {
+  margin-left: auto;
+  color: #67998a;
+}
+
+/* ================= HOVER ================= */
+
+.candidate-stat-card,
+.candidate-ai-banner,
+.candidates-section,
+.candidate-insight-card {
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.candidate-stat-card:hover,
+.candidate-ai-banner:hover,
+.candidates-section:hover,
+.candidate-insight-card:hover {
+  border-color: rgba(113, 202, 169, 0.26);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+  .candidates-page {
+    width: calc(100% - 32px);
+  }
+
+  .candidate-table-header,
+  .candidate-row {
+    grid-template-columns:
+      minmax(180px, 2fr)
+      minmax(140px, 1.5fr)
+      65px
+      75px
+      85px
+      65px
+      25px;
+
+    gap: 7px;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .candidate-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .candidates-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .candidate-actions {
+    width: 100%;
+  }
+
+  .candidate-search {
+    flex: 1;
+  }
+
+  .candidate-insights {
+    grid-template-columns: 1fr;
+  }
+
+  .candidate-table-header {
+    display: none;
+  }
+
+  .candidate-row {
+    grid-template-columns: 1fr auto;
+    padding: 12px 14px;
+    gap: 8px;
+  }
+
+  .candidate-role,
+  .candidate-experience,
+  .candidate-applied {
+    display: none;
+  }
+
+  .candidate-match {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .candidate-row > div:nth-child(5) {
+    grid-column: 1;
+    grid-row: 2;
+    margin-left: 90px;
+  }
+
+  .candidate-more {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .candidates-page {
+    width: calc(100% - 28px);
+    padding: 20px 0;
+  }
+
+  .candidates-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .candidate-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .candidate-ai-banner {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .candidate-ai-banner > button {
+    margin-left: 46px;
+  }
+
+  .candidate-actions {
+    flex-wrap: wrap;
+  }
+
+  .candidate-search {
+    width: 100%;
+    flex: none;
+  }
+
+  .candidate-filter-btn,
+  .candidate-sort-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+}
