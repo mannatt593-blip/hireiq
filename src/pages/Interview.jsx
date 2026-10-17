@@ -27,22 +27,13 @@ import "./Interview.css";
    API
 ========================================================= */
 
-const API_URL = "http://localhost:5000/api";
+import { API_URL, apiFetch } from "../services/api";
 
 /* =========================================================
    AUTH
 ========================================================= */
 
-const getAuthToken = () => {
-  return (
-    localStorage.getItem("hireiq_token") ||
-    localStorage.getItem("hireiqToken") ||
-    localStorage.getItem("token") ||
-    sessionStorage.getItem("hireiq_token") ||
-    sessionStorage.getItem("token") ||
-    ""
-  );
-};
+import { getAuthToken } from "../services/auth";
 
 /* =========================================================
    HELPERS
@@ -406,7 +397,7 @@ function Interviews() {
           );
         }
 
-        const response = await fetch(
+        const response = await apiFetch(
           `${API_URL}/interviews`,
           {
             method: "GET",

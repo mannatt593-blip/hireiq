@@ -29,33 +29,13 @@ import "./CandidateProfile.css";
    API
 ========================================================= */
 
-const API_URL =
-  "http://localhost:5000/api";
+import { API_URL, apiFetch } from "../../services/api";
 
 /* =========================================================
    AUTH
 ========================================================= */
 
-const getAuthToken = () => {
-  return (
-    localStorage.getItem(
-      "hireiq_token"
-    ) ||
-    localStorage.getItem(
-      "hireiqToken"
-    ) ||
-    localStorage.getItem(
-      "token"
-    ) ||
-    sessionStorage.getItem(
-      "hireiq_token"
-    ) ||
-    sessionStorage.getItem(
-      "token"
-    ) ||
-    ""
-  );
-};
+import { getAuthToken } from "../../services/auth";
 
 /* =========================================================
    HELPERS
@@ -501,7 +481,7 @@ function CandidateProfile() {
             candidatesResponse,
             applicationsResponse,
           ] = await Promise.all([
-            fetch(
+            apiFetch(
               `${API_URL}/candidates`,
               {
                 method: "GET",
@@ -509,7 +489,7 @@ function CandidateProfile() {
               }
             ),
 
-            fetch(
+            apiFetch(
               `${API_URL}/applications`,
               {
                 method: "GET",

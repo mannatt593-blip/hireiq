@@ -12,14 +12,15 @@ const authMiddleware = (req, res, next) => {
 
     const authHeader = req.headers.authorization;
 
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    const match = typeof authHeader === "string" && /^Bearer +([^\s]+)$/i.exec(authHeader);
+    if (!match) {
       return res.status(401).json({
         success: false,
         message: "Authentication token required",
       });
     }
 
-    const token = authHeader.split(" ")[1];
+    const token = match[1];
 
     /* -----------------------------
        VERIFY TOKEN
@@ -27,8 +28,16 @@ const authMiddleware = (req, res, next) => {
 
     const decoded = jwt.verify(
       token,
-      process.env.JWT_SECRET
+      process.env.JWT_SECRET,
+      { algorithms: ["HS256"] }
     );
+
+    if (!decoded || typeof decoded !== "object" ||
+        !Number.isFinite(decoded.exp) ||
+        typeof decoded.id !== "string" ||
+        !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(decoded.id)) {
+      throw new Error("Invalid session claims");
+    }
 
     /* -----------------------------
        ATTACH USER TO REQUEST

@@ -566,6 +566,9 @@ _Add analytics screenshot here._
 
 ## Project Status
 
+See [authentication and verification](docs/authentication.md) for session behavior,
+API configuration, and commands to run the regression tests.
+
 **Status: Functional Full-Stack Prototype**
 
 Currently implemented:

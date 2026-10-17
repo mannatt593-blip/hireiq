@@ -9,8 +9,9 @@ import {
 
 import "./App.css";
 
-import Sidebar from "./components/sidebar";
-import Topbar from "./components/topbar";
+import Sidebar from "./components/Sidebar";
+import Topbar from "./components/Topbar";
+import SessionGate from "./components/SessionGate";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -19,25 +20,15 @@ import Candidates from "./pages/Candidate";
 import Applications from "./pages/Application";
 import Interviews from "./pages/Interview";
 import Analytics from "./pages/Analytics";
-import Settings from "./pages/settings";
+import Settings from "./pages/Settings";
 
 import CandidateDetails from "./pages/CandidateDetails/CandidateDetails";
 import CandidateProfile from "./pages/CandidateProfile/CandidateProfile";
 
-const isAuthenticated = () => {
-  return Boolean(
-    localStorage.getItem("hireiq_token") ||
-    localStorage.getItem("hireiqToken") ||
-    localStorage.getItem("token") ||
-    sessionStorage.getItem("hireiq_token") ||
-    sessionStorage.getItem("token")
-  );
-};
-
-function ProtectedRoute() {
+function ProtectedRoute({ authenticated }) {
   const location = useLocation();
 
-  if (!isAuthenticated()) {
+  if (!authenticated) {
     return (
       <Navigate
         to="/login"
@@ -74,6 +65,7 @@ function App() {
   return (
     <BrowserRouter>
 
+      <SessionGate>{authenticated => (
       <Routes>
 
         {/* =========================
@@ -83,7 +75,7 @@ function App() {
         <Route
           path="/login"
           element={
-            isAuthenticated() ? (
+            authenticated ? (
               <Navigate
                 to="/dashboard"
                 replace
@@ -98,7 +90,7 @@ function App() {
             PROTECTED APPLICATION
         ========================= */}
 
-        <Route element={<ProtectedRoute />}>
+        <Route element={<ProtectedRoute authenticated={authenticated} />}>
 
           <Route element={<AppLayout />}>
 
@@ -170,7 +162,7 @@ function App() {
           element={
             <Navigate
               to={
-                isAuthenticated()
+                authenticated
                   ? "/dashboard"
                   : "/login"
               }
@@ -180,6 +172,7 @@ function App() {
         />
 
       </Routes>
+      )}</SessionGate>
 
     </BrowserRouter>
   );
