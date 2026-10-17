@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { LockKeyhole, Mail, ArrowRight, Sparkles } from "lucide-react";
 
 import "./Login.css";
-
-const API_URL = "http://localhost:5000/api";
+import { API_URL } from "../services/api";
+import { saveSession } from "../services/auth";
 
 function Login() {
   const navigate = useNavigate();
@@ -40,14 +40,7 @@ function Login() {
         );
       }
 
-      localStorage.setItem("hireiq_token", data.token);
-
-      if (data.user) {
-        localStorage.setItem(
-          "hireiq_user",
-          JSON.stringify(data.user)
-        );
-      }
+      saveSession(data.token, data.user);
 
       navigate("/dashboard", { replace: true });
     } catch (err) {

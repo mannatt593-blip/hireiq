@@ -28,22 +28,13 @@ import {
   X,
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000/api";
+import { API_URL, apiFetch } from "../services/api";
 
 /* =========================================================
    AUTH
 ========================================================= */
 
-const getAuthToken = () => {
-  return (
-    localStorage.getItem("hireiq_token") ||
-    localStorage.getItem("hireiqToken") ||
-    localStorage.getItem("token") ||
-    sessionStorage.getItem("hireiq_token") ||
-    sessionStorage.getItem("token") ||
-    ""
-  );
-};
+import { getAuthToken, clearSession } from "../services/auth";
 
 /* =========================================================
    HELPERS
@@ -209,7 +200,7 @@ function Topbar() {
         setNotificationLoading(true);
 
         const response =
-          await fetch(
+          await apiFetch(
             `${API_URL}/notifications`,
             {
               method: "GET",
@@ -296,7 +287,7 @@ function Topbar() {
       }
 
       const response =
-        await fetch(
+        await apiFetch(
           `${API_URL}/notifications/${notificationId}/read`,
           {
             method: "PATCH",
@@ -348,7 +339,7 @@ function Topbar() {
         }
 
         const response =
-          await fetch(
+          await apiFetch(
             `${API_URL}/notifications/read-all`,
             {
               method: "PATCH",
@@ -398,7 +389,7 @@ function Topbar() {
         }
 
         const response =
-          await fetch(
+          await apiFetch(
             `${API_URL}/notifications/${notificationId}`,
             {
               method: "DELETE",
@@ -510,29 +501,7 @@ function Topbar() {
   ======================================================= */
 
   const handleLogout = () => {
-    localStorage.removeItem(
-      "hireiq_token"
-    );
-
-    localStorage.removeItem(
-      "hireiqToken"
-    );
-
-    localStorage.removeItem(
-      "token"
-    );
-
-    localStorage.removeItem(
-      "hireiq_user"
-    );
-
-    sessionStorage.removeItem(
-      "hireiq_token"
-    );
-
-    sessionStorage.removeItem(
-      "token"
-    );
+    clearSession();
 
     setUserMenuOpen(false);
 

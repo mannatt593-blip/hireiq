@@ -19,18 +19,9 @@ import {
 
 import "./Jobs.css";
 
-const API_URL = "http://localhost:5000/api";
+import { API_URL, apiFetch } from "../services/api";
 
-const getAuthToken = () => {
-  return (
-    localStorage.getItem("hireiq_token") ||
-    localStorage.getItem("hireiqToken") ||
-    localStorage.getItem("token") ||
-    sessionStorage.getItem("hireiq_token") ||
-    sessionStorage.getItem("token") ||
-    ""
-  );
-};
+import { getAuthToken } from "../services/auth";
 
 const formatPostedTime = (dateValue) => {
   if (!dateValue) return "Recently";
@@ -135,7 +126,7 @@ function Jobs() {
         return;
       }
 
-      const response = await fetch(`${API_URL}/jobs`, {
+      const response = await apiFetch(`${API_URL}/jobs`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -266,7 +257,7 @@ function Jobs() {
         throw new Error("Job title is required.");
       }
 
-      const response = await fetch(`${API_URL}/jobs`, {
+      const response = await apiFetch(`${API_URL}/jobs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

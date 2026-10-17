@@ -20,18 +20,9 @@ import {
 
 import "./Dashboard.css";
 
-const API_URL = "http://localhost:5000/api";
+import { API_URL, apiFetch } from "../services/api";
 
-const getAuthToken = () => {
-  return (
-    localStorage.getItem("hireiq_token") ||
-    localStorage.getItem("hireiqToken") ||
-    localStorage.getItem("token") ||
-    sessionStorage.getItem("hireiq_token") ||
-    sessionStorage.getItem("token") ||
-    ""
-  );
-};
+import { getAuthToken } from "../services/auth";
 
 const formatTimeAgo = (dateValue) => {
   if (!dateValue) return "Recently";
@@ -101,11 +92,11 @@ function Dashboard() {
 
       const [analyticsResponse, interviewsResponse] =
         await Promise.all([
-          fetch(`${API_URL}/analytics/dashboard`, {
+          apiFetch(`${API_URL}/analytics/dashboard`, {
             method: "GET",
             headers,
           }),
-          fetch(`${API_URL}/interviews`, {
+          apiFetch(`${API_URL}/interviews`, {
             method: "GET",
             headers,
           }),
